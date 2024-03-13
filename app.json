@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "70125672-c2d5-435a-a14c-71f5bcdedcd2"
+      }
+    },
+    "owner": "myles449"
   }
 }
