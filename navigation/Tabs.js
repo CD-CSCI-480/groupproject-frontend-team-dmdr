@@ -35,7 +35,7 @@ const Tabs = () =>{
     return(
         <Tab.Navigator
         tabBarOptions={{
-            showLabel:false,
+            tabBarShowLabel:false,
             style: {
                 position: 'absolute',
                 bottom: 25,
