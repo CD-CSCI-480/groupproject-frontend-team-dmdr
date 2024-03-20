@@ -101,4 +101,24 @@ export const categoriesData = [
 
     },
   ]
+  export const progressData = [
+    { 
+    title: 'Weight Loss', 
+    description: "12.182 Kg",
+    progress: 37 },
+    {
+     title: '10k Steps Per Month',
+     description: "6,143 Steps ", 
+     progress: 61.4 },
+    { 
+    title: 'Goal 3', 
+    description: "description", 
+    progress: 90 }
+  ];
+  export const exercises = [
+    { exerciseName: "Push-up", bodyTarget: "Chest, Shoulders, Triceps", sets: 3, reps: 12 },
+    { exerciseName: "Squats", bodyTarget: "Quadriceps, Hamstrings, Glutes", sets: 3, reps: 15 },
+    { exerciseName: "Deadlifts", bodyTarget: "Back, Hamstrings", sets: 4, reps: 10 },
+    // Add more exercise objects as needed
+  ];
   
