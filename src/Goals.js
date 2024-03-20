@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { progressData, exercises } from './constants';
 
 export const ProgressTracker = ({ title, description, progress }) => {
   return (
-    <View style={{borderColor: '#CCCCCC'}}>
-    <View style={{ backgroundColor: '#ffffff', padding:10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-      <View>
-        <Text style={{ fontSize: 14,  marginBottom: 10, color: '#666666' }}>{title}</Text>
-        <Text style={{ fontSize: 18, fontWeight: 'bold' }}> {description}</Text>
-      </View>
+    <View style={{ borderColor: '#CCCCCC' }}>
+      <View style={{ backgroundColor: '#ffffff', padding: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+        <View>
+          <Text style={{ fontSize: 14, marginBottom: 10, color: '#666666' }}>{title}</Text>
+          <Text style={{ fontSize: 18, fontWeight: 'bold' }}> {description}</Text>
+        </View>
         <View style={{ width: 80, alignItems: 'center' }}>
           <AnimatedCircularProgress
             size={40}
@@ -21,7 +21,7 @@ export const ProgressTracker = ({ title, description, progress }) => {
             rotation={0}
             lineCap="round"
             duration={1000}
-        
+
           >
             {(fill) => (
               <Text style={{ marginTop: 5 }}>{`${Math.round(fill)}%`}</Text>
@@ -36,11 +36,11 @@ export const ProgressTracker = ({ title, description, progress }) => {
 const ProgressTrackerCard = ({ progressData }) => {
   return (
     <View style={{ borderColor: '#CCCCCC', borderWidth: 3, borderRadius: 10, overflow: 'hidden' }}>
-    <View style={{ backgroundColor: '#ffffff', padding: 2 }}>
-      {progressData.map((data, index) => (
-        <ProgressTracker key={index} title={data.title} description={data.description} progress={data.progress} />
-      ))}
-    </View>
+      <View style={{ backgroundColor: '#ffffff', padding: 2 }}>
+        {progressData.map((data, index) => (
+          <ProgressTracker key={index} title={data.title} description={data.description} progress={data.progress} />
+        ))}
+      </View>
     </View>
   );
 };
@@ -53,20 +53,20 @@ export const CardWithProgressTracker = ({ title, description, progress }) => {
         <Text style={{ fontSize: 14, color: '#666666' }}> {description}</Text>
       </View>
       <View style={{ position: 'absolute', right: 15, top: 20 }}>
-      <AnimatedCircularProgress
-  size={50}
-  width={3}
-  fill={progress*100}
-  tintColor='#e32f45'
-  backgroundColor="#3d5875">
-  {
-    (fill) => (
-      <Text style={{fontWeight: 'bold'}}>
-        { progress*100 }%
-      </Text>
-    )
-  }
-</AnimatedCircularProgress>
+        <AnimatedCircularProgress
+          size={50}
+          width={3}
+          fill={progress * 100}
+          tintColor='#e32f45'
+          backgroundColor="#3d5875">
+          {
+            (fill) => (
+              <Text style={{ fontWeight: 'bold' }}>
+                {progress * 100}%
+              </Text>
+            )
+          }
+        </AnimatedCircularProgress>
       </View>
     </View>
   );
@@ -111,7 +111,7 @@ const Goals = () => {
             </TouchableOpacity>
           </View>
           <View>
-          <CardWithProgressTracker title="Exercise 1" description='12 Exercises Left' progress={0.3}/>
+            <CardWithProgressTracker title="Exercise 1" description='12 Exercises Left' progress={0.3} />
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 30 }}>
             <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Today's Activity</Text>
@@ -120,17 +120,17 @@ const Goals = () => {
             </TouchableOpacity>
           </View>
           <View style={{ flex: 1, backgroundColor: 'white', padding: 15 }}>
-      <ExerciseCard exercises={exercises} />
-    </View>
+            <ExerciseCard exercises={exercises} />
+          </View>
           <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 2 }}>
             <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Overall Status</Text>
             <TouchableOpacity style={{ marginLeft: 190, marginTop: 2 }}>
               <Text style={{ fontSize: 12 }}>See More</Text>
             </TouchableOpacity>
           </View>
-        <View style={{ flex: 1, marginTop: 20 }} />
-        <ProgressTrackerCard progressData={progressData} />
-      </View>
+          <View style={{ flex: 1, marginTop: 20 }} />
+          <ProgressTrackerCard progressData={progressData} />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -143,11 +143,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 10,
-    elevation: 4, 
-    shadowColor: '#000', 
-    shadowOffset: { width: 0, height: 2 }, 
-    shadowOpacity: 0.25, 
-    shadowRadius: 3.84, 
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
     marginBottom: 20,
     width: '100%',
   },

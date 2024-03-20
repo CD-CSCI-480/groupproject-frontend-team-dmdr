@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { sortCategoryData } from '../constants';
 
@@ -13,7 +13,7 @@ const SortCategories = () => {
 
                 return (
                     <TouchableOpacity key={index} style={[styles.touchable, activeButtonStyle]} onPress={() => setActiveSort(sort)}>
-                        <Text className="font-semibold" style={{ fontSize: 14 , color:isActive?'#e32f45':'#748c94'  }}>{sort}</Text>
+                        <Text className="font-semibold" style={{ fontSize: 14, color: isActive ? '#e32f45' : '#748c94' }}>{sort}</Text>
                     </TouchableOpacity>
                 );
             })}

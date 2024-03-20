@@ -119,6 +119,5 @@ export const categoriesData = [
     { exerciseName: "Push-up", bodyTarget: "Chest, Shoulders, Triceps", sets: 3, reps: 12 },
     { exerciseName: "Squats", bodyTarget: "Quadriceps, Hamstrings, Glutes", sets: 3, reps: 15 },
     { exerciseName: "Deadlifts", bodyTarget: "Back, Hamstrings", sets: 4, reps: 10 },
-    // Add more exercise objects as needed
   ];
   
