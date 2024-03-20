@@ -104,7 +104,7 @@ export const categoriesData = [
   export const progressData = [
     { 
     title: 'Weight Loss', 
-    description: "12.182 Kg",
+    description: "12.07 Kg",
     progress: 37 },
     {
      title: '10k Steps Per Month',
