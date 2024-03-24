@@ -1,6 +1,6 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {Category} from '../Components/data';
+
 import Animated, {
   useAnimatedRef,
   useSharedValue,
@@ -9,16 +9,17 @@ import Animated, {
   measure,
   useDerivedValue,
   withTiming,
+  SharedValue,
 } from 'react-native-reanimated';
 import Chevron from './Chevron';
-import AccordionNested from './AccordionNested';
+import {NestedItem} from '../Components/experimentData';
 
 type Props = {
-  value: Category;
-  type: string;
+  value: NestedItem;
+  parentHeighValue: SharedValue<number>;
 };
 
-const Accordion = ({value, type}: Props) => {
+const Accordion = ({value, parentHeighValue}: Props) => {
   const listRef = useAnimatedRef();
   const heightValue = useSharedValue(0);
   const open = useSharedValue(false);
@@ -38,44 +39,35 @@ const Accordion = ({value, type}: Props) => {
             runOnUI(() => {
               'worklet';
               heightValue.value = withTiming(measure(listRef)!.height);
+              parentHeighValue.value = withTiming(
+                parentHeighValue.value + measure(listRef)!.height,
+              );
             })();
           } else {
-            heightValue.value = withTiming(0);
+            runOnUI(() => {
+              'worklet';
+              heightValue.value = withTiming(0);
+              parentHeighValue.value = withTiming(
+                parentHeighValue.value - measure(listRef)!.height,
+              );
+            })();
           }
           open.value = !open.value;
         }}
         style={styles.titleContainer}>
-          {/*This sets the title of the accordion/expandablex */}
-        <Text style={styles.textTitle}>{value.title}</Text> 
+        <Text style={styles.textTitle}>{value.title}</Text>
         <Chevron progress={progress} />
       </Pressable>
       <Animated.View style={heightAnimationStyle}>
         <Animated.View style={styles.contentContainer} ref={listRef}>
-          {type === 'regular' &&
-            value.content.map((v, i) => {
-              return (
-               
-                <View key={i} style={styles.content}>
-                  <Text style={styles.textContent}>{v} - {i}</Text>
-                </View>
-              );
-            })}
-          {type === 'nested' && (
-            <>
-              <View style={styles.content}>
-                <Text style={styles.textContent}>{value.content}</Text>
+          {/**
+          {value.content.map((v, i) => {
+            return (
+              <View key={i} style={styles.content}>
+                <Text style={styles.textContent}>{v}</Text>
               </View>
-              {value.contentNested.map((val, ind) => {
-                return (
-                  <AccordionNested
-                    value={val}
-                    key={ind}
-                    parentHeighValue={heightValue}
-                  />
-                );
-              })}
-            </>
-          )}
+            );
+          })}*/}
         </Animated.View>
       </Animated.View>
     </View>

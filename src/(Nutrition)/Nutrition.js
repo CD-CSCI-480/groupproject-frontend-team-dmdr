@@ -6,8 +6,8 @@ import {
   StatusBar, ScrollView,
   StyleSheet
 } from 'react-native';
-import data from '../Components/data';
-import Accordion from '../Components/Accordion';
+import data from '../Components/experimentData';
+import Accordion from '../Components/FoodAccordion';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import CollapsibleView from '../Components/CollapsibleView';
 

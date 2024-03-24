@@ -1,6 +1,6 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {Category} from '../Components/data';
+import {Category} from '../Components/experimentData';
 import Animated, {
   useAnimatedRef,
   useSharedValue,
@@ -11,12 +11,14 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import Chevron from './Chevron';
-import AccordionNested from './AccordionNested';
+//import AccordionNested from './FoodInformationAccordion';
 
 type Props = {
   value: Category;
   type: string;
 };
+
+
 
 const Accordion = ({value, type}: Props) => {
   const listRef = useAnimatedRef();
@@ -25,6 +27,12 @@ const Accordion = ({value, type}: Props) => {
   const progress = useDerivedValue(() =>
     open.value ? withTiming(1) : withTiming(0),
   );
+
+  var cals = value.contentNested.reduce(function(prev, cur){
+    return prev + cur.caloric;
+  },0)
+
+  console.log(cals)
 
   const heightAnimationStyle = useAnimatedStyle(() => ({
     height: heightValue.value,
@@ -46,7 +54,7 @@ const Accordion = ({value, type}: Props) => {
         }}
         style={styles.titleContainer}>
           {/*This sets the title of the accordion/expandablex */}
-        <Text style={styles.textTitle}>{value.title}</Text> 
+        <Text style={styles.textTitle}>{value.title} - {cals} Calories</Text> 
         <Chevron progress={progress} />
       </Pressable>
       <Animated.View style={heightAnimationStyle}>
@@ -67,11 +75,9 @@ const Accordion = ({value, type}: Props) => {
               </View>
               {value.contentNested.map((val, ind) => {
                 return (
-                  <AccordionNested
-                    value={val}
-                    key={ind}
-                    parentHeighValue={heightValue}
-                  />
+                  <View key={ind} style={styles.content}>
+                  <Text style={styles.textContent}>{val.title} - {val.content} - {val.caloric} Cals </Text>
+                </View>
                 );
               })}
             </>

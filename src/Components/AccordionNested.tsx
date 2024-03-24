@@ -12,7 +12,7 @@ import Animated, {
   SharedValue,
 } from 'react-native-reanimated';
 import Chevron from './Chevron';
-import {NestedItem} from '../data/data';
+import {NestedItem} from '../Components/data';
 
 type Props = {
   value: NestedItem;
