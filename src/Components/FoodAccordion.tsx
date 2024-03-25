@@ -1,5 +1,6 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {useState} from 'react'
 import {Category} from '../Components/experimentData';
 import Animated, {
   useAnimatedRef,
@@ -11,7 +12,11 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import Chevron from './Chevron';
+import Checkbox from 'expo-checkbox';
 //import AccordionNested from './FoodInformationAccordion';
+
+let totalCals = 0; //total calories in meal planner
+export {totalCals};
 
 type Props = {
   value: Category;
@@ -20,7 +25,9 @@ type Props = {
 
 
 
+
 const Accordion = ({value, type}: Props) => {
+  const [isChecked, setChecked] = useState(false);
   const listRef = useAnimatedRef();
   const heightValue = useSharedValue(0);
   const open = useSharedValue(false);
@@ -32,7 +39,10 @@ const Accordion = ({value, type}: Props) => {
     return prev + cur.caloric;
   },0)
 
-  console.log(cals)
+  value.calories = cals;
+  totalCals += value.calories
+
+  console.log(totalCals)
 
   const heightAnimationStyle = useAnimatedStyle(() => ({
     height: heightValue.value,
@@ -40,6 +50,7 @@ const Accordion = ({value, type}: Props) => {
 
   return (
     <View style={styles.container}>
+      
       <Pressable
         onPress={() => {
           if (heightValue.value === 0) {
@@ -53,12 +64,14 @@ const Accordion = ({value, type}: Props) => {
           open.value = !open.value;
         }}
         style={styles.titleContainer}>
+          <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
           {/*This sets the title of the accordion/expandablex */}
-        <Text style={styles.textTitle}>{value.title} - {cals} Calories</Text> 
+        <Text style={styles.textTitle}>{value.title} - {value.calories} Calories</Text> 
         <Chevron progress={progress} />
       </Pressable>
       <Animated.View style={heightAnimationStyle}>
         <Animated.View style={styles.contentContainer} ref={listRef}>
+          {/**
           {type === 'regular' &&
             value.content.map((v, i) => {
               return (
@@ -68,11 +81,14 @@ const Accordion = ({value, type}: Props) => {
                 </View>
               );
             })}
+          */}
           {type === 'nested' && (
             <>
+            {/**
               <View style={styles.content}>
                 <Text style={styles.textContent}>{value.content}</Text>
               </View>
+          */}
               {value.contentNested.map((val, ind) => {
                 return (
                   <View key={ind} style={styles.content}>
@@ -101,7 +117,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   textTitle: {
-    fontSize: 16,
+    fontSize: 20,
     color: 'black',
   },
   titleContainer: {
@@ -120,7 +136,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#D6E1F0',
   },
   textContent: {
-    fontSize: 14,
+    fontSize: 17,
     color: 'black',
+  },
+  checkbox: {
+    marginTop: 1,
+    alignItems: 'center',
   },
 });

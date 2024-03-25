@@ -9,17 +9,21 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-community/checkbox": "^0.5.17",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.16",
-    "@types/react": "^18.2.69",
+    "@types/react": "~18.2.45",
     "expo": "~50.0.13",
+    "expo-checkbox": "~2.7.0",
     "expo-status-bar": "~1.11.1",
+    "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-collapsible": "^2.10.0",
     "react-native": "0.73.5",
+    "react-native-progress": "^5.0.1",
     "react-native-reanimated": "~3.6.2",
     "react-native-vector-icons": "^10.0.3",
-    "typescript": "^5.4.3"
+    "typescript": "^5.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
