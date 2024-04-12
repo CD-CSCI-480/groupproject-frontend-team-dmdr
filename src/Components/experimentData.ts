@@ -32,14 +32,14 @@ const data: Data = [
     calories: 0,
     contentNested: [
       {
-        title: 'Chicken',
-        content: 'test',
-        caloric: 200,
+        title: 'Bacon',
+        content: '200g',
+        caloric: 270,
       },
       {
-        title: 'Peas',
-        content: 'pee',
-        caloric: 100,
+        title: 'Eggs',
+        content: '1 Large Egg',
+        caloric: 180,
       },
     ],
     type: 'nested',
@@ -57,6 +57,37 @@ const data: Data = [
         title: 'Broccoli',
         content: '10g',
         caloric: 140,
+      },
+    ],
+    calories: 0,
+    type: 'nested',
+  },
+  {
+    title: 'Lunch Part 2',
+    content: [],
+    contentNested: [
+      {
+        title: 'Alfredo',
+        content: '500g',
+        caloric: 550,
+      },
+      {
+        title: 'Broccoli',
+        content: '10g',
+        caloric: 140,
+      },
+    ],
+    calories: 0,
+    type: 'nested',
+  },
+  {
+    title: 'After Lunch Snack',
+    content: [],
+    contentNested: [
+      {
+        title: 'Grapes',
+        content: '25g',
+        caloric: 150,
       },
     ],
     calories: 0,

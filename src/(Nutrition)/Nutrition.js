@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React , { useEffect, useState} from 'react';
 import {
   View,
   FlatList,
@@ -8,32 +8,37 @@ import {
 } from 'react-native';
 import data from '../Components/experimentData';
 import Accordion from '../Components/FoodAccordion';
-import {totalCals} from '../Components/FoodAccordion';
+import {exportCals} from '../Components/FoodAccordion';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import CollapsibleView from '../Components/CollapsibleView';
 import Progressbar from 'react-native-progress/Bar';
 
-console.log("Nutrition", totalCals)
+let cals = exportCals
+
+console.log("Nutrition", exportCals)
 
 const Nutrition = () =>{
+  useEffect(() => {
+  })
+  
   return (
     
     <SafeAreaView style={styles.container} edges={['bottom', 'right', 'left']}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style = {styles.container2}>
           <Text style = {styles.textStuff}>
-            {totalCals}
+            {exportCals}
           </Text>
           <Text style = {{fontSize: 20, textAlign: 'center', marginBottom: 10}}>
             Calorie Goal!
           </Text>
           <Text style = {{fontSize: 25, textAlign: 'center', marginBottom: 5, marginHorizontal:30 }}>
-            300
+            450
           </Text>
           <Text style = {{fontSize: 20, textAlign: 'center', marginBottom: 10, marginHorizontal:30 }}>
             Calories Eaten!
           </Text>
-          <Progressbar progress = {.46875} height = {20} width = {408} style = {{}}/>
+          <Progressbar progress = {0.276} height = {20} width = {408} color = 'rgba(255, 0, 0, 1)'/>
         </View>
         {data.map((value, index) => {
           return <Accordion value={value} key={index} type={value.type} />;
@@ -53,12 +58,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   container2: {
-    backgroundColor: '#E3EDFB',
+    backgroundColor: '#D3D3D3',
     marginHorizontal: 10,
     marginVertical: 10,
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: '#0F56B3',
+    borderColor: '#000000',
     overflow: 'hidden',
     textAlign: 'center',
   },
@@ -88,7 +93,7 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 20,
-    backgroundColor: '#D6E1F0',
+    backgroundColor: '#00000',
   },
   textContent: {
     fontSize: 14,

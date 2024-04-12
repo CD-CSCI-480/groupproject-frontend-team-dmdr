@@ -15,8 +15,10 @@ import Chevron from './Chevron';
 import Checkbox from 'expo-checkbox';
 //import AccordionNested from './FoodInformationAccordion';
 
-let totalCals = 0; //total calories in meal planner
-export {totalCals};
+ //total calories in meal planner
+
+let exportCals = 0;
+export {exportCals};
 
 type Props = {
   value: Category;
@@ -27,6 +29,7 @@ type Props = {
 
 
 const Accordion = ({value, type}: Props) => {
+  const [totalCals, setTotalCals] = useState(0);
   const [isChecked, setChecked] = useState(false);
   const listRef = useAnimatedRef();
   const heightValue = useSharedValue(0);
@@ -35,14 +38,16 @@ const Accordion = ({value, type}: Props) => {
     open.value ? withTiming(1) : withTiming(0),
   );
 
+
   var cals = value.contentNested.reduce(function(prev, cur){
     return prev + cur.caloric;
   },0)
 
-  value.calories = cals;
-  totalCals += value.calories
+  value.calories = cals
+  exportCals += value.calories
 
-  console.log(totalCals)
+
+  console.log(exportCals)
 
   const heightAnimationStyle = useAnimatedStyle(() => ({
     height: heightValue.value,
@@ -64,7 +69,7 @@ const Accordion = ({value, type}: Props) => {
           open.value = !open.value;
         }}
         style={styles.titleContainer}>
-          <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} color={isChecked ? '#FF0000' : undefined} onChange={}/>
           {/*This sets the title of the accordion/expandablex */}
         <Text style={styles.textTitle}>{value.title} - {value.calories} Calories</Text> 
         <Chevron progress={progress} />
@@ -108,12 +113,12 @@ export default Accordion;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#E3EDFB',
+    backgroundColor: '#D3D3D3',
     marginHorizontal: 10,
     marginVertical: 10,
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: '#0F56B3',
+    borderColor: '#000000',
     overflow: 'hidden',
   },
   textTitle: {
