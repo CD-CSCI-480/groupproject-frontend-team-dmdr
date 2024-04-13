@@ -12,7 +12,7 @@ const Chevron = ({progress}: Props) => {
   }));
   return (
     <Animated.View style={iconStyle}>
-      <Image source={require('../Components/Chevron.png')} style={styles.chevron} />
+      <Image source={require('../components/Chevron.png')} style={styles.chevron} />
     </Animated.View>
   );
 };

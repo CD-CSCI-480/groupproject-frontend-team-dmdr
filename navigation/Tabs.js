@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import Goals from "../src/Goals";
 import Home from "../src/Home";
 import Settings from "../src/Settings";
-import Workout from "../src/Workout";
+import Workout from "../src/(Nutrition)/Nutrition";
 import Search from "../src/Search";
 
 const Tab = createBottomTabNavigator();

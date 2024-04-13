@@ -6,11 +6,11 @@ import {
   StatusBar, ScrollView,
   StyleSheet
 } from 'react-native';
-import data from '../Components/experimentData';
-import Accordion from '../Components/FoodAccordion';
-import {exportCals} from '../Components/FoodAccordion';
+import data from '../components/experimentData';
+import Accordion from '../components/FoodAccordion';
+import {exportCals} from '../components/FoodAccordion';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import CollapsibleView from '../Components/CollapsibleView';
+import CollapsibleView from '../components/CollapsibleView';
 import Progressbar from 'react-native-progress/Bar';
 
 let cals = exportCals

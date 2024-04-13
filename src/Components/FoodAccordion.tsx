@@ -1,7 +1,7 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {useState} from 'react'
-import {Category} from '../Components/experimentData';
+import {Category} from './experimentData';
 import Animated, {
   useAnimatedRef,
   useSharedValue,

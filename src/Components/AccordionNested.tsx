@@ -11,8 +11,8 @@ import Animated, {
   withTiming,
   SharedValue,
 } from 'react-native-reanimated';
-import Chevron from './Chevron';
-import {NestedItem} from '../Components/data';
+import Chevron from './Chevron'
+//import {NestedItem} from './components/data.ts';
 
 type Props = {
   value: NestedItem;
