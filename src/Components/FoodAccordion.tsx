@@ -69,7 +69,7 @@ const Accordion = ({value, type}: Props) => {
           open.value = !open.value;
         }}
         style={styles.titleContainer}>
-          <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} color={isChecked ? '#FF0000' : undefined} onChange={}/>
+          <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} color={isChecked ? '#FF0000' : undefined}/>
           {/*This sets the title of the accordion/expandablex */}
         <Text style={styles.textTitle}>{value.title} - {value.calories} Calories</Text> 
         <Chevron progress={progress} />
