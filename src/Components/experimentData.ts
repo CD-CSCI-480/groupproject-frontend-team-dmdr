@@ -13,14 +13,6 @@ export type NestedItem = {
 
 };
 
-function myFunction() {
-  return "hello";
-}
-
-function countCalories(a,b){
-  return String(a + b);
-}
-
 export type Data = Category[];
 
 const data: Data = [

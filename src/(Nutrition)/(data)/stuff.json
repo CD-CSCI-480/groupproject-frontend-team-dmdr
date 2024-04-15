@@ -1,0 +1,15 @@
+[
+    {
+      "title": "Breakfast",
+      "content": [],
+      "calories": 0,
+      "contentNested": [
+        {
+          "title": "'Bacon'",
+          "content": "'200g'",
+          "caloric": "270"
+        }
+    ]
+    }
+  
+]

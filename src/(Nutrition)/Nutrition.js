@@ -7,10 +7,10 @@ import {
   StyleSheet
 } from 'react-native';
 import data from '../components/experimentData';
+import data2 from '../(Nutrition)/(data)/experimentData'
 import Accordion from '../components/FoodAccordion';
 import {exportCals} from '../components/FoodAccordion';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import CollapsibleView from '../components/CollapsibleView';
 import Progressbar from 'react-native-progress/Bar';
 
 let cals = exportCals
@@ -40,7 +40,7 @@ const Nutrition = () =>{
           </Text>
           <Progressbar progress = {0.276} height = {20} width = {408} color = 'rgba(255, 0, 0, 1)'/>
         </View>
-        {data.map((value, index) => {
+        {data2.map((value, index) => {
           return <Accordion value={value} key={index} type={value.type} />;
         })}
       </ScrollView>
